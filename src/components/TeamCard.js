@@ -5,6 +5,18 @@ import Card from "./styles/Card";
 import Select from "./styles/Select";
 import CardInfo from "./styles/CardInfo";
 
+// icons
+import { MdWhatshot } from "react-icons/md/";
+import { IoMdLocate } from "react-icons/io";
+import {
+  GiBlockHouse,
+  GiTimeTrap,
+  GiDividedSquare,
+  GiCrenulatedShield
+} from "react-icons/gi";
+import { IoIosTime } from "react-icons/io";
+import { FaInternetExplorer } from "react-icons/fa";
+
 function TeamCard({ number, currentTeam, teams, changeTeam }) {
   // console.log(number, currentTeam, teams, changeTeam);
   return (
@@ -20,29 +32,31 @@ function TeamCard({ number, currentTeam, teams, changeTeam }) {
       {currentTeam && (
         <Card>
           <h3>
+            <MdWhatshot color="#4a5568" size="20" />
             {currentTeam.name}, <span>{currentTeam.abbreviation}</span>
           </h3>
           <CardInfo>
             <p>
-              location: <span>{currentTeam.locationName}</span>
+              <IoMdLocate /> <span>{currentTeam.locationName}</span>
             </p>
             <p>
-              venue:
+              <GiBlockHouse />
               <span>
                 {currentTeam.venue.name}, in {currentTeam.venue.city}
               </span>
             </p>
             <p>
-              Playing from: <span> {currentTeam.firstYearOfPlay}</span>
+              <GiTimeTrap />
+              <span> {currentTeam.firstYearOfPlay}</span>
             </p>
             <p>
-              division: <span>{currentTeam.division.name}</span>
+              <GiDividedSquare /> <span>{currentTeam.division.name}</span>
             </p>
             <p>
-              conference: <span>{currentTeam.conference.name}</span>
+              <GiCrenulatedShield /> <span>{currentTeam.conference.name}</span>
             </p>
             <p>
-              timeZone:
+              <IoIosTime />
               <span>
                 {currentTeam.venue.timeZone.id},
                 {currentTeam.venue.timeZone.offset}
@@ -50,7 +64,7 @@ function TeamCard({ number, currentTeam, teams, changeTeam }) {
               </span>
             </p>
             <p>
-              web:
+              <FaInternetExplorer />
               <a
                 href={currentTeam.officialSiteUrl}
                 target="_blank"

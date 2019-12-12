@@ -21,8 +21,14 @@ const Card = styled.div`
   }
   p {
     font-size: 1rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.4rem;
     font-weight: 400;
+    display: flex;
+    align-items: center;
+    > svg {
+      font-size: 2rem;
+    }
     color: ${props => props.theme.cardParagraph};
     span {
       color: ${props => props.theme.spanParagraph};

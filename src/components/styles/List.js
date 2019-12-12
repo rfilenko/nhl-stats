@@ -3,7 +3,7 @@ import styled from "styled-components";
 const List = styled.ul`
   list-style-type: none;
   padding: 0.6rem;
-  width: 330px;
+  width: 360px;
   max-height: 390px;
   overflow: hidden;
   overflow-y: scroll;
@@ -36,6 +36,9 @@ const List = styled.ul`
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    svg {
+      margin-left: 0.3em;
     }
   }
   a {
