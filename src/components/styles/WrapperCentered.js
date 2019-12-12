@@ -5,9 +5,8 @@ const WrapperCentered = styled.div`
   flex-flow: row wrap;
   justify-content: center;
   width: 100%;
-  min-height: calc(100vh - 3rem);
+  min-height: calc(100vh - 4rem);
   box-sizing: border-box;
-  margin-top: 3rem;
 `;
 
 export default WrapperCentered;

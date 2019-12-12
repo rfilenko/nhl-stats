@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const List = styled.ul`
   list-style-type: none;
-  margin: 2rem 0;
   padding: 0.6rem;
   width: 330px;
   max-height: 390px;

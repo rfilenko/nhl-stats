@@ -2,6 +2,7 @@ import React from "react";
 
 import CardWrapper from "./styles/CardWrapper";
 import Card from "./styles/Card";
+import Select from "./styles/Select";
 import CardInfo from "./styles/CardInfo";
 
 function TeamCard({ number, currentTeam, teams, changeTeam }) {
@@ -9,13 +10,13 @@ function TeamCard({ number, currentTeam, teams, changeTeam }) {
   return (
     <CardWrapper>
       <h3>Select team</h3>
-      <select value={number} onChange={e => changeTeam(e)}>
+      <Select value={number} onChange={e => changeTeam(e)}>
         {teams.map((team, index) => (
           <option value={index + 1} key={team.teamName}>
             {team.name}
           </option>
         ))}
-      </select>
+      </Select>
       {currentTeam && (
         <Card>
           <h3>
