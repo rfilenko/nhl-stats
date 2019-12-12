@@ -11,20 +11,20 @@ import theme from "./components/styles/theme";
 import { ThemeProvider } from "styled-components";
 
 ReactDOM.render(
-  <Router>
-    <Switch>
-      <Route exact path="/">
-        <ThemeProvider theme={theme}>
+  <ThemeProvider theme={theme}>
+    <Router>
+      <Switch>
+        <Route exact path="/">
           <App />
-        </ThemeProvider>
-      </Route>
-      <Route path="/roster">
-        <Roster setIsVisible={true} />
-      </Route>
-      <Route path="/contact">
-        <Contact />
-      </Route>
-    </Switch>
-  </Router>,
+        </Route>
+        <Route path="/roster">
+          <Roster />
+        </Route>
+        <Route path="/contact">
+          <Contact />
+        </Route>
+      </Switch>
+    </Router>
+  </ThemeProvider>,
   document.getElementById("root")
 );

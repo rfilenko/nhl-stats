@@ -6,14 +6,14 @@ import Sidebar from "./styles/Sidebar";
 
 function Contact() {
   return (
-    <WrapperCentered>
+    <>
       <Header />
-
-      <MainContent>
-        <h3>contact page</h3>
-      </MainContent>
-      <Sidebar></Sidebar>
-    </WrapperCentered>
+      <WrapperCentered>
+        <MainContent>
+          <h3>contact page</h3>
+        </MainContent>
+      </WrapperCentered>
+    </>
   );
 }
 

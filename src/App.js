@@ -49,20 +49,22 @@ function App() {
   };
 
   return (
-    <WrapperCentered>
+    <>
       <Header />
-      <MainContent>
-        <TeamCard
-          currentTeam={currentTeam}
-          number={number}
-          teams={teams}
-          changeTeam={changeTeam}
-        />
-      </MainContent>
-      <Sidebar>
-        <Roster players={players} isVisible={isVisible} setIsVisible={true} />
-      </Sidebar>
-    </WrapperCentered>
+      <WrapperCentered>
+        <MainContent>
+          <TeamCard
+            currentTeam={currentTeam}
+            number={number}
+            teams={teams}
+            changeTeam={changeTeam}
+          />
+        </MainContent>
+        <Sidebar>
+          <Roster players={players} isVisible={isVisible} setIsVisible={true} />
+        </Sidebar>
+      </WrapperCentered>
+    </>
   );
 }
 
