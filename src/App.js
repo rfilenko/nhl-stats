@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
+
 import "./App.css";
 import axios from "axios";
 
 import WrapperCentered from "./components/styles/WrapperCentered";
+import Header from "./components/Header";
 import MainContent from "./components/styles/MainContent";
 import Sidebar from "./components/styles/Sidebar";
+
 import TeamCard from "./components/TeamCard";
 import Roster from "./components/Roster";
 
@@ -47,6 +50,7 @@ function App() {
 
   return (
     <WrapperCentered>
+      <Header />
       <MainContent>
         <TeamCard
           currentTeam={currentTeam}
@@ -56,7 +60,7 @@ function App() {
         />
       </MainContent>
       <Sidebar>
-        <Roster players={players} isVisible={isVisible} />
+        <Roster players={players} isVisible={isVisible} setIsVisible={true} />
       </Sidebar>
     </WrapperCentered>
   );

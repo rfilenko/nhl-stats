@@ -5,6 +5,7 @@ import Card from "./styles/Card";
 import CardInfo from "./styles/CardInfo";
 
 function TeamCard({ number, currentTeam, teams, changeTeam }) {
+  // console.log(number, currentTeam, teams, changeTeam);
   return (
     <CardWrapper>
       <h3>Select team</h3>
