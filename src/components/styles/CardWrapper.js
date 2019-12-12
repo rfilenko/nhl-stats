@@ -17,6 +17,12 @@ const TeamWrapper = styled.div`
   border-top-right-radius: 0.5rem;
   border-color: #cbd5e0;
   max-width: 450px;
+  h1,
+  h2,
+  h3 {
+    margin: 0;
+    margin-top: 1rem;
+  }
 `;
 
 export default TeamWrapper;

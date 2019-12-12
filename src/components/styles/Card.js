@@ -9,7 +9,6 @@ const Card = styled.div`
   border-radius: 0.3em;
   background-color: ${props => props.theme.blackBg};
   font-size: 1rem;
-
   h3 {
     background: ${props => props.theme.lightGray};
     color: ${props => props.theme.darkGray};

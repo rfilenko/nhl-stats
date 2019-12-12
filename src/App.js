@@ -10,6 +10,7 @@ import Sidebar from "./components/styles/Sidebar";
 
 import TeamCard from "./components/TeamCard";
 import Roster from "./components/Roster";
+import Player from "./components/Player";
 
 function App() {
   const [number, setNumber] = useState(5);
@@ -61,7 +62,11 @@ function App() {
           />
         </MainContent>
         <Sidebar>
-          <Roster players={players} isVisible={isVisible} setIsVisible={true} />
+          <Roster
+            players={players}
+            isVisible={isVisible}
+            setIsVisible={setIsVisible}
+          />
         </Sidebar>
       </WrapperCentered>
     </>

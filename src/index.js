@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import Roster from "./components/Roster";
+import Player from "./components/Player";
 import Contact from "./components/Contact";
 
 import theme from "./components/styles/theme";
@@ -17,9 +18,8 @@ ReactDOM.render(
         <Route exact path="/">
           <App />
         </Route>
-        <Route path="/roster">
-          <Roster />
-        </Route>
+        <Route path="/roster" render={props => <Roster {...props} />} />
+        <Route path="/player/:id" render={props => <Player {...props} />} />
         <Route path="/contact">
           <Contact />
         </Route>

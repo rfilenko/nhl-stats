@@ -13,6 +13,9 @@ function Roster({ players, isVisible }) {
               const positionType = p.position.type.toLowerCase();
               return (
                 <li key={p.jerseyNumber}>
+                  <a href={`/player/${p.person.id}`} id={p.person.id}>
+                    info
+                  </a>
                   <p>
                     <span>{p.jerseyNumber}</span> {p.person.fullName}
                     ,&nbsp;

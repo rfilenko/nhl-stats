@@ -9,7 +9,7 @@ function TeamCard({ number, currentTeam, teams, changeTeam }) {
   // console.log(number, currentTeam, teams, changeTeam);
   return (
     <CardWrapper>
-      <h3>Select team</h3>
+      <h3>Select a team</h3>
       <Select value={number} onChange={e => changeTeam(e)}>
         {teams.map((team, index) => (
           <option value={index + 1} key={team.teamName}>

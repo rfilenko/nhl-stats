@@ -8,11 +8,13 @@ const List = styled.ul`
   overflow: hidden;
   overflow-y: scroll;
   box-shadow: ${props => props.theme.boxShadow};
+  background: ${props => props.theme.lightGray};
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   li {
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
   }
   p {
     display: flex;
@@ -35,6 +37,14 @@ const List = styled.ul`
       justify-content: center;
       align-items: center;
     }
+  }
+  a {
+    color: ${props => props.theme.cardParagraph};
+    transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration-color: ${props => props.theme.cardParagraph};
+    text-decoration-line: underline;
+    text-decoration-style: double;
+    font-size: 20px;
   }
 `;
 
