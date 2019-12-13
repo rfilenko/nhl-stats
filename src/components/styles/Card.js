@@ -40,6 +40,7 @@ export const Card = styled.div`
       font-size: x-large;
       font-style: inherit;
       font-weight: bold;
+      top: -1rem;
       color: ${props => props.theme.red};
     }
   }
@@ -83,6 +84,8 @@ export const CardSmall = styled(Card)`
     background: ${props => props.theme.darkWhite};
     padding: 0.3em;
     border-radius: 0.3rem;
+    display: flex;
+    justify-content: center;
   }
   p {
     font-size: 1rem;
@@ -106,6 +109,9 @@ export const CardSmall = styled(Card)`
         border-radius: 50%;
         position: absolute;
         top: -1rem;
+        width: 0.8rem;
+        display: flex;
+        justify-content: center;
       }
       .wins {
         background: ${props => props.theme.green};
@@ -122,7 +128,7 @@ export const CardSmall = styled(Card)`
         right: 0;
       }
       .losses {
-        right: -1.2rem;
+        right: -1.4rem;
       }
     }
   }

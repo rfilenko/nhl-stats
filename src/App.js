@@ -5,7 +5,7 @@ import "./App.css";
 import axios from "axios";
 import Loader from "react-loader-spinner";
 
-import WrapperCentered from "./components/styles/WrapperCentered";
+import { Wrapper } from "./components/styles/Wrapper";
 import Header from "./components/Header";
 import MainContent from "./components/styles/MainContent";
 import Sidebar from "./components/styles/Sidebar";
@@ -72,7 +72,7 @@ function App() {
         }}
         timeout={1750}
       />
-      <WrapperCentered>
+      <Wrapper>
         <MainContent>
           {showContent ? (
             <TeamCard
@@ -90,7 +90,7 @@ function App() {
             setIsVisible={setIsVisible}
           />
         </Sidebar>
-      </WrapperCentered>
+      </Wrapper>
     </>
   );
 }

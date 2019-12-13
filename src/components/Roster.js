@@ -1,5 +1,6 @@
 import React from "react";
 import List from "./styles/List";
+
 import { MdInfoOutline } from "react-icons/md/";
 import { GiHockey } from "react-icons/gi/";
 import { FaHockeyPuck } from "react-icons/fa/";

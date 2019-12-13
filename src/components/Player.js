@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import WrapperCentered from "./styles/WrapperCentered";
+import { WrapperCentered } from "./styles/Wrapper";
 import Header from "./Header";
 import MainContent from "./styles/MainContent";
 

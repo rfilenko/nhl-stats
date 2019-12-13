@@ -1,5 +1,5 @@
 import React from "react";
-import WrapperCentered from "./styles/WrapperCentered";
+import { WrapperCentered } from "./styles/Wrapper";
 import Header from "./Header";
 import MainContent from "./styles/MainContent";
 
@@ -9,7 +9,7 @@ function Contact() {
       <Header />
       <WrapperCentered>
         <MainContent>
-          <h3>contact page</h3>
+          <h3>sample page</h3>
         </MainContent>
       </WrapperCentered>
     </>
