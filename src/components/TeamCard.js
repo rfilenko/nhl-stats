@@ -29,6 +29,7 @@ function TeamCard({ number, currentTeam, teams, changeTeam }) {
           </option>
         ))}
       </Select>
+      {console.log(currentTeam.previousGameSchedule.dates[0].games[0].teams)}
       {currentTeam && (
         <div className="inner-wrap">
           <div className="schedule">
@@ -50,31 +51,62 @@ function TeamCard({ number, currentTeam, teams, changeTeam }) {
                       currentTeam.nextGameSchedule.dates[0].games[0].status
                         .detailedState
                     }
-                    &nbsp;vs
+                  </p>
+                  <p>
+                    <span>
+                      <i className="wins">
+                        {
+                          currentTeam.nextGameSchedule.dates[0].games[0].teams
+                            .home.leagueRecord.wins
+                        }
+                      </i>
+                      <i className="losses">
+                        {
+                          currentTeam.nextGameSchedule.dates[0].games[0].teams
+                            .home.leagueRecord.losses
+                        }
+                      </i>
+                      {
+                        currentTeam.nextGameSchedule.dates[0].games[0].teams
+                          .home.team.name
+                      }
+                    </span>
+                    &nbsp;vs&nbsp;
                     <span>
                       {
                         currentTeam.nextGameSchedule.dates[0].games[0].teams
                           .away.team.name
                       }
+                      <i className="wins">
+                        {
+                          currentTeam.nextGameSchedule.dates[0].games[0].teams
+                            .away.leagueRecord.wins
+                        }
+                      </i>
+                      <i className="losses">
+                        {
+                          currentTeam.nextGameSchedule.dates[0].games[0].teams
+                            .away.leagueRecord.losses
+                        }
+                      </i>
                     </span>
                   </p>
                 </CardInfo>
               </div>
             </CardSmall>
-            <CardSmall>
+            <CardSmall prev>
               <div>
                 <h3>
                   <MdWhatshot color="orange" size="20" /> previous game
                   <span> {currentTeam.previousGameSchedule.dates[0].date}</span>
                 </h3>
                 <CardInfo>
-                  {}
                   <p>
                     {
                       currentTeam.previousGameSchedule.dates[0].games[0].status
                         .detailedState
                     }
-                    &nbsp;-&nbsp;
+                    &nbsp;
                     <i>
                       {
                         currentTeam.previousGameSchedule.dates[0].games[0].teams
@@ -86,8 +118,14 @@ function TeamCard({ number, currentTeam, teams, changeTeam }) {
                           .away.score
                       }
                     </i>
-                    , vs
+                  </p>
+                  <p>
                     <span>
+                      {
+                        currentTeam.previousGameSchedule.dates[0].games[0].teams
+                          .home.team.name
+                      }
+                      &nbsp;vs&nbsp;
                       {
                         currentTeam.previousGameSchedule.dates[0].games[0].teams
                           .away.team.name
@@ -97,14 +135,14 @@ function TeamCard({ number, currentTeam, teams, changeTeam }) {
                       .home.score <
                     currentTeam.previousGameSchedule.dates[0].games[0].teams
                       .away.score ? (
-                      <GameBadge>LOST</GameBadge>
+                      <GameBadge>Away WON</GameBadge>
                     ) : currentTeam.previousGameSchedule.dates[0].games[0].teams
                         .home.score ===
                       currentTeam.previousGameSchedule.dates[0].games[0].teams
                         .away.score ? (
-                      <GameBadgeTied>TIED</GameBadgeTied>
+                      <GameBadgeTied>TIED game</GameBadgeTied>
                     ) : (
-                      <GameBadgeWon>WON</GameBadgeWon>
+                      <GameBadgeWon>Home WON</GameBadgeWon>
                     )}
                   </p>
                 </CardInfo>

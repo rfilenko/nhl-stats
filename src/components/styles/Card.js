@@ -65,10 +65,17 @@ export const CardSmall = styled(Card)`
   }
   div {
     min-height: 4rem;
+    position: relative;
+  }
+  p:first-of-type {
+    width: ${props => (props.prev ? "25%" : "auto")};
+    background: ${props => props.theme.darkWhite};
+    padding: 0.3em;
+    border-radius: 0.3rem;
   }
   p {
     font-size: 1rem;
-    position: relative;
+    align-self: center;
 
     > svg {
       font-size: 1rem;
@@ -79,6 +86,33 @@ export const CardSmall = styled(Card)`
       color: ${props => props.theme.darkBg};
       color: ${props => props.theme.darkGray};
       font-weight: bold;
+
+      position: relative;
+      i {
+        color: ${props => props.theme.darkGray};
+        padding: 3px;
+        font-size: 0.6rem;
+        border-radius: 50%;
+        position: absolute;
+        top: -1rem;
+      }
+      .wins {
+        background: ${props => props.theme.green};
+        left: -1.4rem;
+      }
+      i.losses {
+        background: ${props => props.theme.red};
+        color: white;
+      }
+    }
+    span:last-of-type {
+      .wins {
+        left: inherit;
+        right: 0;
+      }
+      .losses {
+        right: -1.2rem;
+      }
     }
   }
   a {

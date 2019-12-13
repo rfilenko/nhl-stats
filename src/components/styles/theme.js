@@ -1,6 +1,7 @@
 // COlORS
 const columbiaBlue = "#93ddfd";
 const pattensBlue = "#edf2f7";
+const solitude = "#f7fafc";
 const eastBay = "#4a5568";
 const licorice = "#2D3748";
 const monaLisa = "#ff8383";
@@ -24,6 +25,7 @@ const boxShadowMd = `
 const linkColor = columbiaBlue;
 const lightGray = pattensBlue;
 const darkGray = licorice;
+const darkWhite = solitude;
 const blackBg = eastBay;
 
 const cardParagraph = monaLisa;
@@ -39,6 +41,7 @@ export default {
   green,
   lightGray,
   darkGray,
+  darkWhite,
   blackBg,
   cardParagraph,
   spanParagraph,
