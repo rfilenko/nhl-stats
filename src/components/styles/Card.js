@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import player from "../../images/player.png";
 
 export const Card = styled.div`
   display: flex;
@@ -52,6 +53,16 @@ export const Card = styled.div`
     }
   }
 `;
+// A new Card Player component based on Card
+export const CardPlayer = styled(Card)`
+  min-width: inherit;
+  width: 25rem;
+  background-image: url(${player});
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+`;
+
 // A new component based on Card
 export const CardSmall = styled(Card)`
   width: 20rem;

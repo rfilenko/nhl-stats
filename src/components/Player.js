@@ -5,7 +5,7 @@ import WrapperCentered from "./styles/WrapperCentered";
 import Header from "./Header";
 import MainContent from "./styles/MainContent";
 
-import { Card } from "./styles/Card";
+import { CardPlayer } from "./styles/Card";
 import CardInfo from "./styles/CardInfo";
 import Badge from "./styles/Badge";
 
@@ -28,7 +28,7 @@ function Player({ match, match: { params } }) {
         <MainContent>
           <Badge>player information</Badge>
           {playerInfo && (
-            <Card>
+            <CardPlayer>
               <h3>
                 {playerInfo.firstName}
                 <b> {playerInfo.lastName}</b>
@@ -57,7 +57,7 @@ function Player({ match, match: { params } }) {
                   </p>
                 ) : null}
               </CardInfo>
-            </Card>
+            </CardPlayer>
           )}
         </MainContent>
       </WrapperCentered>
