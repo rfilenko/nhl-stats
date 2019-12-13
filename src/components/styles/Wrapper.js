@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   flex-flow: row wrap;
 
   width: 100%;
-  min-height: calc(100vh - 4rem);
+  margin-top: -1rem;
   box-sizing: border-box;
 
   @media screen and (max-width: 768px) {
