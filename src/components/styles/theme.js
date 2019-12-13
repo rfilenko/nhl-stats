@@ -4,7 +4,12 @@ const pattensBlue = "#edf2f7";
 const eastBay = "#4a5568";
 const licorice = "#2D3748";
 const monaLisa = "#ff8383";
+const darkPink = "#ed5565";
+const tangerine = "#f18000";
 const reef = "#B5F4A5";
+
+const fruitSalad = "#54a960";
+
 const mediumSlateBlue = "#9F7AEA";
 
 const boxShadow = `
@@ -23,9 +28,15 @@ const blackBg = eastBay;
 
 const cardParagraph = monaLisa;
 const spanParagraph = reef;
+const green = fruitSalad;
+const red = darkPink;
+const orange = tangerine;
 const spanNumber = mediumSlateBlue;
 
 export default {
+  orange,
+  red,
+  green,
   lightGray,
   darkGray,
   blackBg,

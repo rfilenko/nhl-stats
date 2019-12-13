@@ -21,7 +21,8 @@ function App() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const teamsUrl = `https://statsapi.web.nhl.com/api/v1/teams`;
+    // const teamsUrl = `https://statsapi.web.nhl.com/api/v1/teams`;
+    let teamsUrl = `https://statsapi.web.nhl.com/api/v1/teams?expand=team.schedule.previous&expand=team.schedule.next`;
     async function getTeamsInfo() {
       const response = await axios.get(teamsUrl);
       setTeams(response.data.teams);
@@ -48,6 +49,7 @@ function App() {
     setNumber(e.target.value);
     setIsVisible(true);
   };
+  console.log(teams[4]);
 
   return (
     <>

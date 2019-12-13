@@ -5,7 +5,7 @@ import WrapperCentered from "./styles/WrapperCentered";
 import Header from "./Header";
 import MainContent from "./styles/MainContent";
 
-import Card from "./styles/Card";
+import { Card } from "./styles/Card";
 import CardInfo from "./styles/CardInfo";
 import Badge from "./styles/Badge";
 

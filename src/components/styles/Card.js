@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Card = styled.div`
+export const Card = styled.div`
   display: flex;
   flex-direction: column;
   width: 25rem;
@@ -34,6 +34,12 @@ const Card = styled.div`
       color: ${props => props.theme.spanParagraph};
       margin-left: 0.5rem;
     }
+    i {
+      font-size: x-large;
+      font-style: inherit;
+      font-weight: bold;
+      color: ${props => props.theme.red};
+    }
   }
   a {
     color: ${props => props.theme.linkColor};
@@ -45,5 +51,33 @@ const Card = styled.div`
     }
   }
 `;
+// A new component based on Button, but with some override styles
+export const CardSmall = styled(Card)`
+  width: 20rem;
+  font-size: 1rem;
+  background-color: ${props => props.theme.lightGray};
+  h3 {
+    background: ${props => "#fff"};
+    color: ${props => props.theme.green};
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  p {
+    font-size: 1rem;
+    position: relative;
 
-export default Card;
+    > svg {
+      font-size: 1rem;
+    }
+    color: ${props => props.theme.darkGray};
+
+    span {
+      color: ${props => props.theme.darkBg};
+      color: ${props => props.theme.darkGray};
+      font-weight: bold;
+    }
+  }
+  a {
+    color: ${props => props.theme.linkColor};
+  }
+`;

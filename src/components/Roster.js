@@ -5,8 +5,6 @@ import { GiHockey } from "react-icons/gi/";
 import { FaHockeyPuck } from "react-icons/fa/";
 
 function Roster({ players, isVisible }) {
-  console.log(players);
-
   return (
     <>
       {isVisible && (
