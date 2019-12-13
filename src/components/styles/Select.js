@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 const Select = styled.select`
+  width: 100%;
   transition: all 0.1s ease-in;
   margin: 0.75rem;
-  margin-left: auto;
+
   padding-left: 2.5rem;
   padding-right: 1rem;
   padding-top: 0.5rem;
@@ -20,6 +21,10 @@ const Select = styled.select`
     outline: 0;
     border-color: ${props => props.theme.lightGray};
     background-color: #fff;
+  }
+  @media screen and (min-width: 768px) {
+    width: auto;
+    margin-left: auto;
   }
 `;
 

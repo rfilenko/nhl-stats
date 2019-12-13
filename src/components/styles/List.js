@@ -3,7 +3,7 @@ import styled from "styled-components";
 const List = styled.ul`
   list-style-type: none;
   padding: 0.6rem;
-  width: 360px;
+  width: 100%;
   max-height: 390px;
   overflow: hidden;
   overflow-y: scroll;
@@ -11,6 +11,11 @@ const List = styled.ul`
   background: ${props => props.theme.lightGray};
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+
+  @media screen and (min-width: 768px) {
+    width: 360px;
+  }
+
   li {
     display: flex;
     flex-flow: row wrap;

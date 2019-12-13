@@ -7,6 +7,10 @@ export const Wrapper = styled.div`
   width: 100%;
   min-height: calc(100vh - 4rem);
   box-sizing: border-box;
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+  }
 `;
 
 // A new centered Wrapper

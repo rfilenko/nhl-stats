@@ -31,6 +31,9 @@ const TeamWrapper = styled.div`
   .inner-wrap {
     display: flex;
     flex-basis: 100%;
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 `;
 
