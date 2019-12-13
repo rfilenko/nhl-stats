@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 const Select = styled.select`
   transition: all 0.1s ease-in;
-  width: 80%;
   margin: 0.75rem;
+  margin-left: auto;
   padding-left: 2.5rem;
   padding-right: 1rem;
   padding-top: 0.5rem;
@@ -13,7 +13,7 @@ const Select = styled.select`
   border-width: 1px;
   border-radius: 0.5rem;
   border-color: transparent;
-  background-color: #edf2f7;
+  background-color: ${props => props.theme.lightgray};
   color: ${props => props.theme.blackBg};
   cursor: pointer;
   &:focus {

@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  width: 25rem;
+  flex: 1;
+  min-width: 25rem;
   margin: 0.75rem;
   box-shadow: ${props => props.theme.boxShadowMd};
   border-radius: 0.3em;
@@ -51,7 +52,7 @@ export const Card = styled.div`
     }
   }
 `;
-// A new component based on Button, but with some override styles
+// A new component based on Card
 export const CardSmall = styled(Card)`
   width: 20rem;
   font-size: 1rem;
@@ -61,6 +62,9 @@ export const CardSmall = styled(Card)`
     color: ${props => props.theme.green};
     padding: 1rem;
     font-size: 1rem;
+  }
+  div {
+    min-height: 4rem;
   }
   p {
     font-size: 1rem;

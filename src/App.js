@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import "./App.css";
 import axios from "axios";
+import Loader from "react-loader-spinner";
 
 import WrapperCentered from "./components/styles/WrapperCentered";
 import Header from "./components/Header";
@@ -10,19 +11,17 @@ import Sidebar from "./components/styles/Sidebar";
 
 import TeamCard from "./components/TeamCard";
 import Roster from "./components/Roster";
-import Player from "./components/Player";
 
 function App() {
   const [number, setNumber] = useState(5);
   const [currentTeam, setCurrentTeam] = useState(null);
   const [teams, setTeams] = useState([]);
   const [players, setPlayers] = useState([]);
-  const [playersId, setPlayersId] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    // const teamsUrl = `https://statsapi.web.nhl.com/api/v1/teams`;
-    let teamsUrl = `https://statsapi.web.nhl.com/api/v1/teams?expand=team.schedule.previous&expand=team.schedule.next`;
+    const teamsUrl = `https://statsapi.web.nhl.com/api/v1/teams?expand=team.schedule.previous&expand=team.schedule.next`;
     async function getTeamsInfo() {
       const response = await axios.get(teamsUrl);
       setTeams(response.data.teams);
@@ -32,6 +31,12 @@ function App() {
     getTeamsInfo();
     getPlayers(firstUrl);
   }, []);
+
+  //show content
+  setTimeout(() => {
+    teams.length > 0 && setShowContent(true);
+  }, 2000);
+
   const firstNumber = number;
   const firstUrl = `https://statsapi.web.nhl.com/api/v1/teams/${firstNumber}/roster`;
   async function getPlayers(value) {
@@ -49,19 +54,33 @@ function App() {
     setNumber(e.target.value);
     setIsVisible(true);
   };
-  console.log(teams[4]);
 
   return (
     <>
       <Header />
+      <Loader
+        type="Bars"
+        color="#9F7AEA"
+        height={200}
+        width={200}
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)"
+        }}
+        timeout={1750}
+      />
       <WrapperCentered>
         <MainContent>
-          <TeamCard
-            currentTeam={currentTeam}
-            number={number}
-            teams={teams}
-            changeTeam={changeTeam}
-          />
+          {showContent ? (
+            <TeamCard
+              currentTeam={currentTeam}
+              number={number}
+              teams={teams}
+              changeTeam={changeTeam}
+            />
+          ) : null}
         </MainContent>
         <Sidebar>
           <Roster

@@ -30,17 +30,16 @@ function Player({ match, match: { params } }) {
           {playerInfo && (
             <Card>
               <h3>
-                {" "}
                 {playerInfo.firstName}
                 <b> {playerInfo.lastName}</b>
               </h3>
               <CardInfo>
                 <p>
-                  height: <span>{playerInfo.height}</span> , weight:{" "}
+                  height: <span>{playerInfo.height}</span> , weight:
                   <span>{playerInfo.weight}</span>
                 </p>
                 <p>
-                  age: <span>{playerInfo.currentAge}</span> , nationality:{" "}
+                  age: <span>{playerInfo.currentAge}</span> , nationality:
                   <span>{playerInfo.nationality}</span>
                 </p>
                 <p>

@@ -8,7 +8,7 @@ const TeamWrapper = styled.div`
   padding: 1rem;
   overflow: hidden;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   align-items: center;
   border-left-width: 1px;
   border-right-width: 1px;
@@ -16,12 +16,21 @@ const TeamWrapper = styled.div`
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   border-color: #cbd5e0;
-  max-width: 450px;
   h1,
   h2,
   h3 {
     margin: 0;
     margin-top: 1rem;
+  }
+  h3 {
+    flex-basis: 100%;
+  }
+  > h3 {
+    text-align: center;
+  }
+  .inner-wrap {
+    display: flex;
+    flex-basis: 100%;
   }
 `;
 
