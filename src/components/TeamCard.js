@@ -29,7 +29,6 @@ function TeamCard({ number, currentTeam, teams, changeTeam }) {
           </option>
         ))}
       </Select>
-      {console.log(currentTeam.previousGameSchedule.dates[0].games[0].teams)}
       {currentTeam && (
         <div className="inner-wrap">
           <div className="schedule">

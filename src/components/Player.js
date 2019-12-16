@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import { WrapperCentered } from "./styles/Wrapper";
+import { WrapperPlayer } from "./styles/Wrapper";
 import Header from "./Header";
 import MainContent from "./styles/MainContent";
 
@@ -9,11 +9,10 @@ import { CardPlayer } from "./styles/Card";
 import CardInfo from "./styles/CardInfo";
 import Badge from "./styles/Badge";
 
-function Player({ match, match: { params } }) {
+function Player({ props: { history, match } }) {
   const [playerInfo, setPlayerInfo] = useState([]);
-
   useEffect(() => {
-    const playerIdUrl = `https://statsapi.web.nhl.com/api/v1/people/${params.id}`;
+    const playerIdUrl = `https://statsapi.web.nhl.com/api/v1/people/${match.params.id}`;
     async function getPlayerInfo() {
       const response = await axios.get(playerIdUrl);
       setPlayerInfo(response.data.people[0]);
@@ -24,9 +23,10 @@ function Player({ match, match: { params } }) {
   return (
     <>
       <Header />
-      <WrapperCentered>
+      <WrapperPlayer>
         <MainContent>
           <Badge>player information</Badge>
+          <button onClick={() => history.goBack()}>go back</button>
           {playerInfo && (
             <CardPlayer>
               <h3>
@@ -60,7 +60,7 @@ function Player({ match, match: { params } }) {
             </CardPlayer>
           )}
         </MainContent>
-      </WrapperCentered>
+      </WrapperPlayer>
     </>
   );
 }

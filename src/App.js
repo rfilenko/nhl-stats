@@ -22,6 +22,8 @@ function App() {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
+    const firstNumber = number;
+    const firstUrl = `https://statsapi.web.nhl.com/api/v1/teams/${firstNumber}/roster`;
     const teamsUrl = `https://statsapi.web.nhl.com/api/v1/teams?expand=team.schedule.previous&expand=team.schedule.next`;
     async function getTeamsInfo() {
       const response = await axios.get(teamsUrl);
@@ -31,6 +33,8 @@ function App() {
 
     getTeamsInfo();
     getPlayers(firstUrl);
+
+    return () => {};
   }, []);
 
   //show content
@@ -38,8 +42,6 @@ function App() {
     teams.length > 0 && setShowContent(true);
   }, 2000);
 
-  const firstNumber = number;
-  const firstUrl = `https://statsapi.web.nhl.com/api/v1/teams/${firstNumber}/roster`;
   async function getPlayers(value) {
     const response = await axios.get(value);
     setPlayers(response.data.roster);

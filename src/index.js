@@ -18,11 +18,17 @@ ReactDOM.render(
         <Route exact path="/">
           <App />
         </Route>
-        <Route path="/roster" render={props => <Roster {...props} />} />
-        <Route path="/player/:id" render={props => <Player {...props} />} />
-        <Route path="/contact">
-          <Contact />
-        </Route>
+        <Route exact path="/roster" render={props => <Roster {...props} />} />
+        <Route
+          exact
+          path="/player/:id"
+          render={(props, id) => <Player id={id} props={props} />}
+        />
+        <Route
+          exact
+          path="/contact"
+          render={routerProps => <Contact {...routerProps} />}
+        />
       </Switch>
     </Router>
   </ThemeProvider>,
