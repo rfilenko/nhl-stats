@@ -17,6 +17,7 @@ function App() {
   const [number, setNumber] = useState(5);
   const [currentTeam, setCurrentTeam] = useState(null);
   const [teams, setTeams] = useState([]);
+  const [teamStats, setTeamStats] = useState({});
   const [players, setPlayers] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
   const [showContent, setShowContent] = useState(false);
@@ -28,11 +29,12 @@ function App() {
     async function getTeamsInfo() {
       const response = await axios.get(teamsUrl);
       setTeams(response.data.teams);
+      console.log(response.data.teams[0]);
       setCurrentTeam(response.data.teams[number - 1]);
     }
-
     getTeamsInfo();
     getPlayers(firstUrl);
+    getTeamStats();
 
     return () => {};
   }, []);
@@ -41,6 +43,16 @@ function App() {
   setTimeout(() => {
     teams.length > 0 && setShowContent(true);
   }, 2000);
+
+  // team Stats
+  const statsUrl = `https://statsapi.web.nhl.com/api/v1/teams/${number}/stats`;
+  async function getTeamStats() {
+    const response = await axios.get(statsUrl);
+    // setTeams(response.data.teams);
+    console.log(response.data.stats[0].splits[0].stat);
+    // console.log(response.data.stats[0].type.displayName);
+    setTeamStats(response.data.stats[0]);
+  }
 
   async function getPlayers(value) {
     const response = await axios.get(value);
@@ -52,8 +64,11 @@ function App() {
     //get players info
     const playersUrl = `https://statsapi.web.nhl.com/api/v1/teams/${updatedNumber}/roster`;
     getPlayers(playersUrl);
+
     //update team info
     setCurrentTeam(teams[updatedNumber - 1]);
+
+    getTeamStats();
     setNumber(e.target.value);
     setIsVisible(true);
   };
@@ -81,6 +96,7 @@ function App() {
               currentTeam={currentTeam}
               number={number}
               teams={teams}
+              teamStats={teamStats}
               changeTeam={changeTeam}
             />
           ) : null}

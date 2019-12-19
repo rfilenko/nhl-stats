@@ -11,6 +11,7 @@ export const Card = styled.div`
   border-radius: 0.3em;
   background-color: ${props => props.theme.blackBg};
   font-size: 1rem;
+  max-height: 415px;
   h3 {
     background: ${props => props.theme.lightGray};
     color: ${props => props.theme.darkGray};
@@ -20,6 +21,8 @@ export const Card = styled.div`
     text-transform: uppercase;
     letter-spacing: 0.01em;
     font-size: 1.35rem;
+    flex-grow: 0;
+    flex-basis: 20px;
   }
   p {
     font-size: 1rem;
@@ -134,5 +137,44 @@ export const CardSmall = styled(Card)`
   }
   a {
     color: ${props => props.theme.linkColor};
+  }
+`;
+
+// A new Card Player component based on Card
+export const CardSmallStats = styled(CardSmall)`
+  h3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ${props => props.theme.orange};
+    svg {
+      margin-right: 5px;
+    }
+  }
+  p {
+    align-self: flex-start;
+    span {
+      i {
+        font-size: 1.2rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        position: relative;
+        top: 0;
+        &.wins {
+          background: ${props => props.theme.green};
+          left: 0;
+        }
+        &.ot {
+          background: ${props => props.theme.orange};
+        }
+      }
+    }
+  }
+  p:first-of-type {
+    width: 100%;
+    font-size: 125%;
+    svg {
+      margin: 0 0.5rem;
+    }
   }
 `;
