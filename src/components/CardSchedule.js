@@ -1,20 +1,24 @@
-import React from "react";
+import React from 'react';
 
-import { CardSmall } from "./styles/Card";
-import CardInfo from "./styles/CardInfo";
+import { CardSmall } from './styles/Card';
+import CardInfo from './styles/CardInfo';
 
 // icons
-import { MdWhatshot } from "react-icons/md/";
-import { GiTimeTrap } from "react-icons/gi";
+import { MdWhatshot } from 'react-icons/md/';
+import { GiTimeTrap } from 'react-icons/gi';
 
 function CardSchedule({ currentTeam }) {
   const { date } = currentTeam.nextGameSchedule.dates[0];
+  if (!date) {
+    return <p>No shedule is available</p>;
+  }
+
   return (
     <CardSmall>
       <div>
         <h3>
           <MdWhatshot color="#54a960" size="20" /> next game
-          <span> {date}</span>
+          {/* <span> {date ? date : null}</span> */}
         </h3>
         <CardInfo>
           <p>

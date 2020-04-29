@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import "./App.css";
+import './App.css';
 
-import axios from "axios";
-import Loader from "react-loader-spinner";
+import axios from 'axios';
+import Loader from 'react-loader-spinner';
 
-import { Wrapper } from "./components/styles/Wrapper";
-import Header from "./components/Header";
-import MainContent from "./components/styles/MainContent";
-import Sidebar from "./components/styles/Sidebar";
+import { Wrapper } from './components/styles/Wrapper';
+import Header from './components/Header';
+import MainContent from './components/styles/MainContent';
+import Sidebar from './components/styles/Sidebar';
 
-import TeamCard from "./components/TeamCard";
-import Roster from "./components/Roster";
+import TeamCard from './components/TeamCard';
+import Roster from './components/Roster';
 
 function App() {
   const [number, setNumber] = useState(5);
@@ -29,7 +29,6 @@ function App() {
     async function getTeamsInfo() {
       const response = await axios.get(teamsUrl);
       setTeams(response.data.teams);
-      console.log(response.data.teams[0]);
       setCurrentTeam(response.data.teams[number - 1]);
     }
     getTeamsInfo();
@@ -49,8 +48,6 @@ function App() {
   async function getTeamStats() {
     const response = await axios.get(statsUrl);
     // setTeams(response.data.teams);
-    console.log(response.data.stats[0].splits[0].stat);
-    // console.log(response.data.stats[0].type.displayName);
     setTeamStats(response.data.stats[0]);
   }
 
@@ -58,7 +55,7 @@ function App() {
     const response = await axios.get(value);
     setPlayers(response.data.roster);
   }
-  const changeTeam = e => {
+  const changeTeam = (e) => {
     //get selected option value
     const updatedNumber = parseFloat(e.target.value);
     //get players info
@@ -82,10 +79,10 @@ function App() {
         height={200}
         width={200}
         style={{
-          position: "absolute",
-          left: "50%",
-          top: "50%",
-          transform: "translate(-50%, -50%)"
+          position: 'absolute',
+          left: '50%',
+          top: '50%',
+          transform: 'translate(-50%, -50%)',
         }}
         timeout={1750}
       />
