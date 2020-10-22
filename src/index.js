@@ -1,15 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import "./index.css";
-import App from "./App";
-import Roster from "./components/Roster";
-import Player from "./components/Player";
-import Contact from "./components/Contact";
+import './index.css';
+import App from './App';
+import Roster from './components/Roster';
+import Player from './components/Player';
+import FavTeam from './components/FavTeam';
 
-import theme from "./components/styles/theme";
-import { ThemeProvider } from "styled-components";
+import theme from './components/styles/theme';
+import { ThemeProvider } from 'styled-components';
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
@@ -18,7 +18,7 @@ ReactDOM.render(
         <Route exact path="/">
           <App />
         </Route>
-        <Route exact path="/roster" render={props => <Roster {...props} />} />
+        <Route exact path="/roster" render={(props) => <Roster {...props} />} />
         <Route
           exact
           path="/player/:id"
@@ -26,11 +26,11 @@ ReactDOM.render(
         />
         <Route
           exact
-          path="/contact"
-          render={routerProps => <Contact {...routerProps} />}
+          path="/favouriteTeam"
+          render={(routerProps) => <FavTeam {...routerProps} />}
         />
       </Switch>
     </Router>
   </ThemeProvider>,
-  document.getElementById("root")
+  document.getElementById('root')
 );

@@ -1,20 +1,20 @@
-import styled from "styled-components";
-import player from "../../images/player.png";
+import styled from 'styled-components';
+import player from '../../images/player.png';
 
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
+  /* flex: 1; */
   min-width: 25rem;
   margin: 0.75rem;
-  box-shadow: ${props => props.theme.boxShadowMd};
+  box-shadow: ${(props) => props.theme.boxShadowMd};
   border-radius: 0.3em;
-  background-color: ${props => props.theme.blackBg};
+  background-color: ${(props) => props.theme.blackBg};
   font-size: 1rem;
   max-height: 415px;
   h3 {
-    background: ${props => props.theme.lightGray};
-    color: ${props => props.theme.darkGray};
+    background: ${(props) => props.theme.lightGray};
+    color: ${(props) => props.theme.darkGray};
     margin: 0;
     padding: 1.25rem;
     text-align: center;
@@ -23,6 +23,13 @@ export const Card = styled.div`
     font-size: 1.35rem;
     flex-grow: 0;
     flex-basis: 20px;
+    b {
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+    .shirt {
+      color: orange;
+    }
   }
   p {
     font-size: 1rem;
@@ -34,9 +41,9 @@ export const Card = styled.div`
     > svg {
       font-size: 2rem;
     }
-    color: ${props => props.theme.cardParagraph};
+    color: ${(props) => props.theme.cardParagraph};
     span {
-      color: ${props => props.theme.spanParagraph};
+      color: ${(props) => props.theme.spanParagraph};
       margin-left: 0.5rem;
     }
     i {
@@ -44,11 +51,11 @@ export const Card = styled.div`
       font-style: inherit;
       font-weight: bold;
       top: -1rem;
-      color: ${props => props.theme.red};
+      color: ${(props) => props.theme.red};
     }
   }
   a {
-    color: ${props => props.theme.linkColor};
+    color: ${(props) => props.theme.linkColor};
     margin-left: 0.5rem;
     transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     &:hover {
@@ -71,10 +78,10 @@ export const CardPlayer = styled(Card)`
 export const CardSmall = styled(Card)`
   width: 20rem;
   font-size: 1rem;
-  background-color: ${props => props.theme.lightGray};
+  background-color: ${(props) => props.theme.lightGray};
   h3 {
-    background: ${props => "#fff"};
-    color: ${props => props.theme.green};
+    background: ${(props) => '#fff'};
+    color: ${(props) => props.theme.green};
     padding: 1rem;
     font-size: 1rem;
   }
@@ -83,8 +90,8 @@ export const CardSmall = styled(Card)`
     position: relative;
   }
   p:first-of-type {
-    width: ${props => (props.prev ? "25%" : "auto")};
-    background: ${props => props.theme.darkWhite};
+    width: ${(props) => (props.prev ? '25%' : 'auto')};
+    background: ${(props) => props.theme.darkWhite};
     padding: 0.3em;
     border-radius: 0.3rem;
     display: flex;
@@ -97,16 +104,16 @@ export const CardSmall = styled(Card)`
     > svg {
       font-size: 1rem;
     }
-    color: ${props => props.theme.darkGray};
+    color: ${(props) => props.theme.darkGray};
 
     span {
-      color: ${props => props.theme.darkBg};
-      color: ${props => props.theme.darkGray};
+      color: ${(props) => props.theme.darkBg};
+      color: ${(props) => props.theme.darkGray};
       font-weight: bold;
 
       position: relative;
       i {
-        color: ${props => props.theme.darkGray};
+        color: ${(props) => props.theme.darkGray};
         padding: 3px;
         font-size: 0.6rem;
         border-radius: 50%;
@@ -117,11 +124,11 @@ export const CardSmall = styled(Card)`
         justify-content: center;
       }
       .wins {
-        background: ${props => props.theme.green};
+        background: ${(props) => props.theme.green};
         left: -1.4rem;
       }
       i.losses {
-        background: ${props => props.theme.red};
+        background: ${(props) => props.theme.red};
         color: white;
       }
     }
@@ -136,7 +143,7 @@ export const CardSmall = styled(Card)`
     }
   }
   a {
-    color: ${props => props.theme.linkColor};
+    color: ${(props) => props.theme.linkColor};
   }
 `;
 
@@ -146,7 +153,7 @@ export const CardSmallStats = styled(CardSmall)`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: ${props => props.theme.orange};
+    color: ${(props) => props.theme.orange};
     svg {
       margin-right: 5px;
     }
@@ -161,11 +168,11 @@ export const CardSmallStats = styled(CardSmall)`
         position: relative;
         top: 0;
         &.wins {
-          background: ${props => props.theme.green};
+          background: ${(props) => props.theme.green};
           left: 0;
         }
         &.ot {
-          background: ${props => props.theme.orange};
+          background: ${(props) => props.theme.orange};
         }
       }
     }

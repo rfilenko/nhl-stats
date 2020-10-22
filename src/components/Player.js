@@ -1,45 +1,102 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-import { WrapperPlayer } from "./styles/Wrapper";
-import Header from "./Header";
-import MainContent from "./styles/MainContent";
+import { WrapperPlayer } from './styles/Wrapper';
+import Header from './Header';
 
-import { CardPlayer } from "./styles/Card";
-import CardInfo from "./styles/CardInfo";
-import Badge from "./styles/Badge";
+import { CardPlayer } from './styles/Card';
+import CardInfo from './styles/CardInfo';
+import Badge from './styles/Badge';
+import TeamInfoCard from './TeamInfoCard';
 
-function Player({ props: { history, match } }) {
+function Player({ props: { match } }) {
   const [playerInfo, setPlayerInfo] = useState([]);
+  const [current, setCurrent] = useState(null);
+  const [num, setNum] = useState(null);
+
+  //get player info
   useEffect(() => {
     const playerIdUrl = `https://statsapi.web.nhl.com/api/v1/people/${match.params.id}`;
     async function getPlayerInfo() {
       const response = await axios.get(playerIdUrl);
+      setNum(response.data.people[0].currentTeam.id);
       setPlayerInfo(response.data.people[0]);
     }
     getPlayerInfo();
-  }, []);
+  }, [match.params.id]);
+
+  //set currentTeam
+  useEffect(() => {
+    const teamsUrl = `https://statsapi.web.nhl.com/api/v1/teams/${
+      num ? num : 5
+    }`;
+    fetch(teamsUrl)
+      .then((resp) => resp.json())
+      .then(function (data) {
+        setCurrent(data.teams[0]);
+      });
+  }, [playerInfo, num]);
+
+  const primaryPosition = () => {
+    return playerInfo.primaryPosition?.name !==
+      playerInfo.primaryPosition?.type ? (
+      <>
+        <span>{playerInfo.primaryPosition?.code.toLowerCase()},</span>
+        <span>{playerInfo.primaryPosition?.name.toLowerCase()},</span>
+        <span>{playerInfo.primaryPosition?.type.toLowerCase()}</span>
+      </>
+    ) : (
+      ((<span>{playerInfo.primaryPosition?.code.toLowerCase()}</span>),
+      (<span>{playerInfo.primaryPosition?.name.toLowerCase()}</span>))
+    );
+  };
 
   return (
     <>
       <Header />
       <WrapperPlayer>
-        <MainContent>
-          <Badge>player information</Badge>
-          <button onClick={() => history.goBack()}>go back</button>
+        <header>
+          <Badge>Player details page</Badge>
+          <Link to={`/`}>
+            <button>go back</button>
+          </Link>
+        </header>
+        <div className="playerInfo">
           {playerInfo && (
             <CardPlayer>
               <h3>
                 {playerInfo.firstName}
-                <b> {playerInfo.lastName}</b>
+                <b>{playerInfo.lastName},</b>
+                <b className="shirt">{playerInfo.primaryNumber}</b>
               </h3>
               <CardInfo>
+                {playerInfo.active && (
+                  <p>
+                    status:{' '}
+                    <span>
+                      {playerInfo.active ? 'active player' : 'ended career'}
+                    </span>
+                  </p>
+                )}
+                <p>position: {primaryPosition()}</p>
+
+                {playerInfo.captain === 'yes' ? (
+                  <p>
+                    captain: <span>{playerInfo.captain ? 'yes' : 'no'}</span>
+                  </p>
+                ) : null}
+                {playerInfo.rookie && (
+                  <p>
+                    rookie: <span>{playerInfo.rookie}</span>
+                  </p>
+                )}
                 <p>
-                  height: <span>{playerInfo.height}</span> , weight:
+                  height: <span>{playerInfo.height}, </span> weight:
                   <span>{playerInfo.weight}</span>
                 </p>
                 <p>
-                  age: <span>{playerInfo.currentAge}</span> , nationality:
+                  age: <span>{playerInfo.currentAge}, </span> nationality:
                   <span>{playerInfo.nationality}</span>
                 </p>
                 <p>
@@ -48,18 +105,11 @@ function Player({ props: { history, match } }) {
                     {playerInfo.birthCity}, {playerInfo.birthStateProvince}
                   </span>
                 </p>
-                <p>
-                  primaryNumber : <span>{playerInfo.primaryNumber}</span>
-                </p>
-                {playerInfo.captain === "yes" ? (
-                  <p>
-                    captain: <span>{playerInfo.captain ? "yes" : "no"}</span>
-                  </p>
-                ) : null}
               </CardInfo>
             </CardPlayer>
           )}
-        </MainContent>
+        </div>
+        {current && <TeamInfoCard currentTeam={current} />}
       </WrapperPlayer>
     </>
   );

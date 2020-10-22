@@ -1,9 +1,9 @@
-import React from "react";
-import { WrapperCentered } from "./styles/Wrapper";
-import Header from "./Header";
-import MainContent from "./styles/MainContent";
+import React from 'react';
+import { WrapperCentered } from './styles/Wrapper';
+import Header from './Header';
+import MainContent from './styles/MainContent';
 
-function Contact(props) {
+function FavTeam(props) {
   return (
     <>
       <Header />
@@ -17,4 +17,4 @@ function Contact(props) {
   );
 }
 
-export default Contact;
+export default FavTeam;

@@ -1,9 +1,9 @@
-import React from "react";
-import List from "./styles/List";
-
-import { MdInfoOutline } from "react-icons/md/";
-import { GiHockey } from "react-icons/gi/";
-import { FaHockeyPuck } from "react-icons/fa/";
+import React from 'react';
+import List from './styles/List';
+import { Link } from 'react-router-dom';
+import { MdInfoOutline } from 'react-icons/md/';
+import { GiHockey } from 'react-icons/gi/';
+import { FaHockeyPuck } from 'react-icons/fa/';
 
 function Roster({ players, isVisible }) {
   return (
@@ -12,14 +12,14 @@ function Roster({ players, isVisible }) {
         <>
           <h3>Roster</h3>
           <List>
-            {players.map(p => {
+            {players.map((p, idx) => {
               const positionName = p.position.name.toLowerCase();
               const positionType = p.position.type.toLowerCase();
               return (
-                <li key={p.jerseyNumber}>
-                  <a href={`/player/${p.person.id}`} id={p.person.id}>
+                <li key={`${idx}_${p.jerseyNumber}`}>
+                  <Link to={`/player/${p.person.id}`} id={p.person.id}>
                     <MdInfoOutline size="32" color="#ff8383" />
-                  </a>
+                  </Link>
                   <p>
                     <span>{p.jerseyNumber}</span> {p.person.fullName}
                     ,&nbsp;
@@ -28,7 +28,7 @@ function Roster({ players, isVisible }) {
                     {positionName === positionType
                       ? positionName
                       : positionType}
-                    {positionName === "goalie" ? (
+                    {positionName === 'goalie' ? (
                       <FaHockeyPuck color="#4a5568" size="15" />
                     ) : (
                       <GiHockey color="#4a5568" size="15" />

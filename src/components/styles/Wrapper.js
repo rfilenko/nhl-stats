@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -19,8 +19,8 @@ export const Wrapper = styled.div`
     font-weight: bold;
     cursor: pointer;
     transition: all 0.25s ease-in;
-    color: ${props => props.theme.lightGray};
-    background: ${props => props.theme.blackBg};
+    color: ${(props) => props.theme.lightGray};
+    background: ${(props) => props.theme.blackBg};
     margin: 0 0.5rem;
     &:hover {
       opacity: 0.95;
@@ -35,8 +35,19 @@ export const Wrapper = styled.div`
 export const WrapperCentered = styled(Wrapper)`
   justify-content: center;
 `;
-// rapper player
+// wrapper player
 export const WrapperPlayer = styled(Wrapper)`
   margin-top: 0;
   justify-content: center;
+  header {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .player-info,
+  .team-info {
+    flex-basis: 50%;
+    max-width: 500px;
+  }
 `;

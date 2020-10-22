@@ -5,21 +5,8 @@ import CardStats from './CardStats';
 import CardSchedule from './CardSchedule';
 import CardPrev from './CardPrev';
 
-import { Card } from './styles/Card';
 import Select from './styles/Select';
-import CardInfo from './styles/CardInfo';
-
-// icons
-import { MdWhatshot } from 'react-icons/md/';
-import { IoMdLocate } from 'react-icons/io';
-import {
-  GiBlockHouse,
-  GiTimeTrap,
-  GiDividedSquare,
-  GiCrenulatedShield,
-} from 'react-icons/gi';
-import { IoIosTime } from 'react-icons/io';
-import { FaInternetExplorer } from 'react-icons/fa';
+import TeamInfoCard from './TeamInfoCard';
 
 function TeamCard({ number, currentTeam, teams, changeTeam, teamStats }) {
   return (
@@ -42,52 +29,7 @@ function TeamCard({ number, currentTeam, teams, changeTeam, teamStats }) {
 
             <CardPrev currentTeam={currentTeam} />
           </div>
-          <Card>
-            <h3>
-              <MdWhatshot color="#4a5568" size="20" />
-              {currentTeam.name}, <span>{currentTeam.abbreviation}</span>
-            </h3>
-            <CardInfo>
-              <p>
-                <IoMdLocate /> <span>{currentTeam.locationName}</span>
-              </p>
-              <p>
-                <GiBlockHouse />
-                <span>
-                  {currentTeam.venue.name}, in {currentTeam.venue.city}
-                </span>
-              </p>
-              <p>
-                <GiTimeTrap />
-                <span> {currentTeam.firstYearOfPlay}</span>
-              </p>
-              <p>
-                <GiDividedSquare /> <span>{currentTeam.division.name}</span>
-              </p>
-              <p>
-                <GiCrenulatedShield />{' '}
-                <span>{currentTeam.conference.name}</span>
-              </p>
-              <p>
-                <IoIosTime />
-                <span>
-                  {currentTeam.venue.timeZone.id},
-                  {currentTeam.venue.timeZone.offset}
-                  {currentTeam.venue.timeZone.tz}
-                </span>
-              </p>
-              <p>
-                <FaInternetExplorer />
-                <a
-                  href={currentTeam.officialSiteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  official site
-                </a>
-              </p>
-            </CardInfo>
-          </Card>
+          <TeamInfoCard currentTeam={currentTeam} />
         </div>
       )}
     </CardWrapper>
